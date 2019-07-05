@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3>Ingreso al Sistema</h3>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="frmLogin">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="User" formControlName="email">
+                        <div class="alert no-padding no-margin" *ngIf="!frmLogin.controls.email.valid 
+                        && frmLogin.controls.email.touched">
+                            <div class="alert alert-danger">
+                                <strong>Ops!</strong> {{getError(frmLogin,'email')}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="Password" formControlName="password">
+                        <div class="alert no-padding no-margin" *ngIf="!frmLogin.controls.password.valid 
+                                                    && frmLogin.controls.password.touched">
+                            <div class="alert alert-danger">
+                                <strong>Error!</strong> {{getError(frmLogin,'password')}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button (click)="login()" class="btn float-right login_btn">
+                                Login
+                            </button>
+                        </div>
+                        <div>
+                            <button (click)="cancelar()" class="btn float-right login_cancelar">
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-center">
+                    Desarrollo Prueba Angular
+                </div>
+                <div class="d-flex justify-content-center">
+                    Juan David Ossa Arevalo
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
