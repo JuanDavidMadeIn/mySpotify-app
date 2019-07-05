@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MySpotifyRoutingModule,adminComponents } from './my-spotify-routing.module';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
     imports: [
@@ -12,7 +12,8 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
       MySpotifyRoutingModule,
       FormsModule,
       ReactiveFormsModule,
-      NgbModalModule
+      BsDropdownModule
+   
     ],
     declarations: [adminComponents, LoginComponent],
     providers:[]

@@ -37,24 +37,6 @@ box-shadow: 0 0 0 0 !important;
 
 }
 
-.login_btn{
-color: black;
-background-color: #28a745;
-width: 100px;
-}
-
-.login_btn:hover{
-color: black;
-background-color: white;
-}
-
-.login_cancelar{
-color: black;
-background-color: #dc3545;
-width: 100px;
-}
-
-.login_cancelar:hover{
-color: black;
-background-color: white;
+.form-group .btn-danger {
+    margin-right:5px
 }

@@ -1,28 +1,225 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar_spotify">
-    <img src="https://image.flaticon.com/icons/svg/174/174872.svg" width="70" height="70">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="container">
+           
+        <div class="row w-100">
+        
+            <div class="col-4 col-md-4 col-sm-4">
+                    <a class="navbar-brand" href="#"><img src="https://image.flaticon.com/icons/svg/174/174872.svg">Spotify</a>
+            </div>
+          
+            <div class="col-8 col-md-8 col-sm-8 text-right">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse h-100" id="navbarSupportedContent">
+                    <form class="form-inline w-100">
+                            <input class="form-control mr-sm-2" type="search" (keyup.enter)="search($event.target.value)" placeholder="Search" aria-label="Search">
+                        </form>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">SPOTIFY <span class="sr-only">(current)</span></a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" (keyup.enter)="search($event.target.value)" placeholder="Search" aria-label="Search">
-        </form>
-        <div class="btn-group" role="group">
-            <button (click)="informacionUsuario()" id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-user"></i>
-            </button>
+                        <!-- dropdown bootstrap-->
+                        <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-user"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="#">Action</a>
+                                  <a class="dropdown-item" href="#">Another action</a>
+                                  <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                              </div>
+
+                      <!--  <button (click)="informacionUsuario()" id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </button>-->
+                </div>
+            </div>
+         
+ 
         </div>
     </div>
+  
 </nav>
-<section>
-    <router-outlet></router-outlet>
+
+
+<section class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-right">
+               
+                <!-- dropdown bootstrap valor softare-->
+                    <div class="btn-group" dropdown>
+                            <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                                    aria-controls="dropdown-basic">
+                             Mostrar <span class="caret"></span>
+                            </button>
+                            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                                role="menu" aria-labelledby="button-basic">
+                              <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+                              <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+                              <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+                              <li class="divider dropdown-divider"></li>
+                              <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+                              </li>
+                            </ul>
+                          </div>
+            </div>
+        </div>
+
+        <div class="row list-songs">
+            <div class="col-md-4 col-sm-6 col-12">
+                    <div class="card card-main">
+                        <div class="card-header">
+                            <div class="col-i-left">
+                                    <i class="fas fa-play"></i>
+                                    <i class="fas fa-heart"></i>
+    
+                            </div>
+                            <div class="col-i-right">
+
+                                    <div class="btn-group" dropdown>
+                                            <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                                                    aria-controls="dropdown-basic">
+                                                    <i class="fas fa-cog"></i> <span class="caret"></span>
+                                            </button>
+                                            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                                                role="menu" aria-labelledby="button-basic">
+                                              <li role="menuitem"><a class="dropdown-item" href="#">Ocultar</a></li>
+                                            
+                                          
+                                            </ul>
+                                          </div>
+
+                                  
+                            </div>
+                              
+                        </div>
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/BobMarley-Legend.jpg/220px-BobMarley-Legend.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Album: xxxx</h5>
+                              <p class="card-text">Artista</p>
+                            
+                            </div>
+                          </div>
+
+            </div>
+
+
+            <div class="col-md-4 col-sm-6 col-12">
+                    <div class="card card-main">
+                        <div class="card-header">
+                            <div class="col-i-left">
+                                    <i class="fas fa-play"></i>
+                                    <i class="fas fa-heart"></i>
+    
+                            </div>
+                            <div class="col-i-right">
+
+                                    <div class="btn-group" dropdown>
+                                            <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                                                    aria-controls="dropdown-basic">
+                                                    <i class="fas fa-cog"></i> <span class="caret"></span>
+                                            </button>
+                                            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                                                role="menu" aria-labelledby="button-basic">
+                                              <li role="menuitem"><a class="dropdown-item" href="#">Ocultar</a></li>
+                                            
+                                          
+                                            </ul>
+                                          </div>
+
+                                  
+                            </div>
+                              
+                        </div>
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/BobMarley-Legend.jpg/220px-BobMarley-Legend.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Album: xxxx</h5>
+                              <p class="card-text">Artista</p>
+                            
+                            </div>
+                          </div>
+
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-12">
+                    <div class="card card-main">
+                        <div class="card-header">
+                            <div class="col-i-left">
+                                    <i class="fas fa-play"></i>
+                                    <i class="fas fa-heart"></i>
+    
+                            </div>
+                            <div class="col-i-right">
+
+                                    <div class="btn-group" dropdown>
+                                            <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                                                    aria-controls="dropdown-basic">
+                                                    <i class="fas fa-cog"></i> <span class="caret"></span>
+                                            </button>
+                                            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                                                role="menu" aria-labelledby="button-basic">
+                                              <li role="menuitem"><a class="dropdown-item" href="#">Ocultar</a></li>
+                                            
+                                          
+                                            </ul>
+                                          </div>
+
+                                  
+                            </div>
+                              
+                        </div>
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/BobMarley-Legend.jpg/220px-BobMarley-Legend.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Album: xxxx</h5>
+                              <p class="card-text">Artista</p>
+                            
+                            </div>
+                          </div>
+
+            </div>
+        </div>
+    </div>
+   <!-- <router-outlet></router-outlet>-->
 </section>
 
+<section class="details">
+    <div class="container">
+
+        
+        <div class="row">
+                <div class="col-md-12 text-left back">
+                        <i class="fas fa-arrow-left"></i>Atrás
+                </div>
+            <div class="col-md-4">
+                <div class="prev-album">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/BobMarley-Legend.jpg/220px-BobMarley-Legend.jpg" class="card-img-top" alt="...">
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-play"></i>
+                </div>
+                 
+                  
+
+            </div>
+
+            <div class="col-md-8">
+                <div class="box-track">
+                    <div class="action">
+                            <i class="fas fa-play"></i>
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/BobMarley-Legend.jpg/220px-BobMarley-Legend.jpg" class="card-img-top" alt="...">
+
+                    </div>
+                    <div class="info">
+                        <div class="title"><strong>Title:</strong>xxxxxxxxx</div>
+                        <div class="date"><strong>Date:</strong>xxxxxxxxx</div>
+                    </div>
+                    <div class="time">
+                        5:00
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

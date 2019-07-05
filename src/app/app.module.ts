@@ -5,8 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from "@angular/common/http";
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { MySpotifyModule } from './my-spotify/my-spotify.module';
 
 @NgModule({
   declarations: [
@@ -17,10 +18,11 @@ import { HttpClientModule } from "@angular/common/http";
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModalModule,
-    HttpClientModule
+    HttpClientModule,
+    MySpotifyModule,
+    BsDropdownModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

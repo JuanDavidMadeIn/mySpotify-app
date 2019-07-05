@@ -1,5 +1,68 @@
 .navbar_spotify{
     background-color: #e3f2fd;
-    padding-left: 50px;
-    padding-right: 100px
+    .form-control {width:80%}
+    .navbar-toggler {
+        margin-top: 1rem;
+    }
+    .navbar-collapse {text-align: left}
+    @media only screen and (max-width:992px) {
+        .form-control {width:100%;margin:10px 0px}
+    }
+ 
+}
+
+.content {
+    padding:5rem 0rem;
+    i {cursor: pointer;}
+    .list-songs {
+        margin-top:2rem;
+        .card-main .card-header  {
+            i {margin-right:10px;font-size:25px}
+            i:last-child {margin-right:0px}
+            display:flex;
+            .col-i-left {
+                flex:2;
+                align-items: center;
+                display: flex;}
+            .col-i-right {flex:1;text-align: right}
+    }
+
+    @media (max-width:992px) {
+        .card {margin-bottom:20px!important}
+    }
+  
+    }
+}
+
+
+
+.details {
+    .back {
+        cursor: pointer;
+        margin:5rem 0rem;
+        display:flex;
+        align-content: center;
+        i {font-size:30px;margin-right:10px}
+    }
+    .prev-album {
+        i {font-size:40px;margin-top:20px;margin-right:10px}
+        @media (max-width:992px) {margin-bottom:40px}
+    }
+    .box-track {
+        background:#ededed;
+        border:1px solid #dedede;
+        padding:10px;
+        display:flex;
+        align-items: center;
+        .action {
+            flex:1;
+            img {width:80px;height:80px};
+            i {margin-right:40px;margin-left:20px;font-size:30px;cursor: pointer;}
+            @media (max-width:992px) {flex:2; i{margin-right:10px;}}
+        }
+        .info {flex:2}
+        .time {flex:1}
+    }
+
+
 }
