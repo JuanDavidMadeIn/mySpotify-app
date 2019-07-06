@@ -1,6 +1,5 @@
-import { Router } from '@angular/router';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import {petitionSpotify} from '../../providers/petitionspotify.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -9,39 +8,36 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  public frmLogin : FormGroup;
-  constructor(private formBuilder: FormBuilder,
-              private router: Router) { }
+  private contador;
+  constructor(private petitionSpotify : petitionSpotify) { }
 
   ngOnInit() {
-    this.frmLogin = this.formBuilder.group({
-      email: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.email])],
-      password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
-    });
+    let ruta = window.location.href.split("?");
+    
+    if(ruta.length > 1){
+      if(ruta[1].search("code") != -1){
+        this.notificar("Exito","Estamos cargando su contenido","success");
+        this.petitionSpotify.solicitarToken(ruta[1]);
+      }
+      
+      if(ruta[1].search("error") != -1){
+        this.notificar("Error","No se ha autenticado correctamente con spotify","error");
+      }
+    }
   }
 
   public login() {
-    if (!this.frmLogin.valid) {
-      this.notificar("Advertencia", "Se debe llenar los campos y/o algunos estan invalidos", "warning");
-      return;
-    }
-    if (this.frmLogin.value.email.indexOf('@') == -1) return;
-
-    console.log(this.frmLogin.value);
     this.notificandoEntrandaAlSistema();
-
-    
-
-
-
-
-    //this.auth.login(this.frmLogin.value.email.toLowerCase(),this.frmLogin.value.password);
+    this.contador = setTimeout(()=>{
+      Swal.close();
+      this.petitionSpotify.login();
+    },2000);
   }
 
   notificandoEntrandaAlSistema() {
     Swal.fire({
       title: 'Estamos procesando su solicitud',
-      text: "Comprobando Información",
+      text: "Conectando con Spotify ....",
       type: 'success',
       showConfirmButton : true,
       confirmButtonColor: '#dc3545',
@@ -54,16 +50,15 @@ export class LoginComponent implements OnInit {
   }
 
   cancelar(){
-    this.frmLogin.setValue({
-      email : '',
-      password : ''
-    });
-
     Swal.fire(
       'Cancelando!',
       '',
       'success'
     );
+
+    if(this.contador){
+      clearTimeout(this.contador);
+    }
   }
 
   notificar(title, text, type, footer?) {
@@ -74,27 +69,4 @@ export class LoginComponent implements OnInit {
       footer: footer
     })
   }
-
-  getError(form: any, control) {
-    let errors = form.controls[control].errors;
-    if (!errors) return "";
-    let keysErrors = Object.keys(errors);
-    if (keysErrors.length == 0) return "";
-
-    switch (keysErrors[0]) {
-      case "required":
-        return "Este campo es obligatorio";
-
-      case "email":
-        return "Verifique el correo su formato se encuentra invalido";
-
-      case "minlength":
-        return "La longitud minima de caracteres es de: " + errors.minlength["requiredLength"];
-
-      case "pattern":
-        return "Caracteres invalidos";
-    }
-  }
-
-
 }

@@ -19,7 +19,7 @@ const routes: Routes = [
   },
 
   { path: 'login', component: LoginComponent },
-  { path: 'normal', component: MySpotifyComponent }
+  { path: 'spotify', component: MySpotifyComponent }
 
 ];
 

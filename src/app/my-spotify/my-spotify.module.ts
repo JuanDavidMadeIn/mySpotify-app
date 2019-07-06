@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
+import {petitionSpotify} from '../providers/petitionspotify.service'
 @NgModule({
     imports: [
       CommonModule,
@@ -16,6 +17,6 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
    
     ],
     declarations: [adminComponents, LoginComponent],
-    providers:[]
+    providers:[petitionSpotify]
   })
   export class MySpotifyModule {}

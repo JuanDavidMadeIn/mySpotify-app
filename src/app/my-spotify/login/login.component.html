@@ -1,17 +1,33 @@
-
 <div class="container vh-100">
     <div class="row vh-100">
-<div class="col-md-12 col-sm-12 col-12 text-center">
+        <div class="col-md-12 col-sm-12 col-12 text-center">
+            <div class="d-flex justify-content-center h-100">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Ingreso al Sistema</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mx-auto">
+                                <img src="https://image.flaticon.com/icons/svg/174/174872.svg" height="50" width="50">
+                        </div>
+                        <div class="row">
+                            <h5>Para poder ingresar a esta aplicación se debe autenticar ante Spotify</h5>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <button (click)="login()" class="btn btn-success col-10 form-control">
+                                    Login
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button (click)="cancelar()" class="btn btn-danger col-10">
+                                    Cancelar
+                                </button>
+                            </div>
 
+                        </div>
 
-  
-    <div class="d-flex justify-content-center h-100">
-        <div class="card">
-            <div class="card-header">
-                <h3>Ingreso al Sistema</h3>
-            </div>
-            <div class="card-body">
-                <form [formGroup]="frmLogin">
+                        <!-- <form [formGroup]="frmLogin">
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -48,18 +64,18 @@
                             </button>
                         </div>
                     </div>
-                </form>
-            </div>
-            <div class="card-footer">
-                <div class="d-flex justify-content-center">
-                    Desarrollo Prueba Angular
-                </div>
-                <div class="d-flex justify-content-center">
-                    Juan David Ossa Arevalo
+                </form> -->
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center">
+                            Desarrollo Prueba Angular
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            Juan David Ossa Arevalo
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
 </div>
